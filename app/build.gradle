@@ -1,11 +1,17 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
     compileSdkVersion versions.compileSdk
     buildToolsVersion "30.0.2"
+
+    buildFeatures {
+        viewBinding true
+    }
 
     defaultConfig {
         applicationId "com.example.simple_dictionary"
@@ -35,13 +41,17 @@ android {
 
 dependencies {
 
-    implementation (
+    implementation(
             lib.kotlin,
             lib.rxJava.values(),
             lib.navigation.values(),
             lib.androidx.values(),
             lib.material,
+            lib.hilt.imp,
+            lib.ktxDependencies.values()
     )
+
+    kapt lib.hilt.kapet
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

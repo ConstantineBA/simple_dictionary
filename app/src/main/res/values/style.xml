@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="TextView.Black" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/roboto_black</item>
+    </style>
+
+
+    <style name="TextView.Black.24sp" parent="@style/TextView.Black">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+
+    <style name="TextView.Regular" parent="@style/Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextView.Regular.14sp" parent="TextView.Regular">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+
+</resources>
