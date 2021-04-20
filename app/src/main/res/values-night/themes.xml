@@ -10,13 +10,13 @@
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
 
-        <item name="colorPrimarySurface">@color/traffic_black</item>
+        <item name="colorSurface">@color/traffic_black</item>
 
         <!-- Customize your theme here. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimarySurface</item>
-        <item name="android:navigationBarColor">?attr/colorPrimarySurface</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorSurface</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
         <item name="android:windowBackground">@drawable/image_preloader_dark</item>
     </style>
 </resources>

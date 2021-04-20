@@ -1,5 +1,5 @@
 ext.versions = [
-        
+
         application       : 1,
 
         minSdk            : 23,
@@ -19,28 +19,43 @@ ext.versions = [
 
         material          : "1.3.0",
 
+        hilt              : "2.33-beta",
+
+        activityKtx       : "1.1.0",
+        fragmentKtx       : "1.3.2"
+
 ]
 
 ext.lib = [
 
-        rxJava    : [
+        rxJava         : [
                 rxJava   : "io.reactivex.rxjava3:rxjava:$versions.rxJava",
                 rxAndroid: "io.reactivex.rxjava3:rxandroid:$versions.rxAndroid"
         ],
 
-        navigation: [
+        navigation     : [
                 fragment: "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
                 uiKtx   : "androidx.navigation:navigation-ui-ktx:$versions.navigation"
         ],
 
-        androidx  : [
+        androidx       : [
                 core      : "androidx.core:core-ktx:$versions.androidxCore",
                 appcompat : "androidx.appcompat:appcompat:$versions.androidxAppcompat",
                 constraint: "androidx.constraintlayout:constraintlayout:$versions.androidxConstraint"
         ],
 
-        kotlin    : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
+        ktxDependencies: [
+                activity: "androidx.activity:activity-ktx:$versions.activityKtx",
+                fragment: "androidx.fragment:fragment-ktx:$versions.fragmentKtx"
+        ],
 
-        material  : "com.google.android.material:material:$versions.material"
+        kotlin         : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
 
+        material       : "com.google.android.material:material:$versions.material",
+
+        hilt           : [
+                plug : "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt",
+                imp  : "com.google.dagger:hilt-android:$versions.hilt",
+                kapet: "com.google.dagger:hilt-compiler:$versions.hilt"
+        ]
 ]

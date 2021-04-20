@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">simple_dictionary</string>
+
+    <!--- Splashscreen region -->
+    <string name="splashscreen_title">Simple dictionary</string>
+    <string name="splashscreen_description">it’s simple app for experience</string>
+
+    <!--- end Splashscreen region -->
+
+
 </resources>
