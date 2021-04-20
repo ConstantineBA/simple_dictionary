@@ -18,9 +18,9 @@ class SplashscreenViewModel @Inject constructor() :
         }
     }
 
-    private fun onOpenScreenEvent(): ObservableTransformer<SplashscreenUiEvent, SplashscreenUiModel> {
+    private fun onOpenScreenEvent(): ObservableTransformer<SplashscreenUiEvent, SplashscreenUiModel.GoToSearch> {
         return ObservableTransformer {
-            Observable.just(SplashscreenUiModel()).delay(1, TimeUnit.SECONDS)
+            Observable.just(SplashscreenUiModel.GoToSearch).delay(1, TimeUnit.SECONDS)
         }
     }
 }

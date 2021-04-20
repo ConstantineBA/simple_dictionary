@@ -2,12 +2,22 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/splashScreenFragment"
-    android:id="@+id/nav">
+    android:id="@+id/nav"
+    app:startDestination="@id/splashscreenFragment">
 
     <fragment
-        android:id="@+id/splashScreenFragment"
+        android:id="@+id/splashscreenFragment"
         android:name="com.example.simple_dictionary.presenter.splashscreen.SplashscreenFragment"
-        tools:layout="@layout/splashscreen_fragment" />
+        tools:layout="@layout/splashscreen_fragment" >
+
+        <action
+            android:id="@+id/toSearchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.simple_dictionary.presenter.search.SearchFragment"
+        tools:layout="@layout/search_fragment" />
 
 </navigation>
