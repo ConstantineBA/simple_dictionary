@@ -1,4 +1,4 @@
-package com.example.simple_dictionary.presenter.search
+package com.example.simple_dictionary.search.presenter
 
 import androidx.fragment.app.viewModels
 import com.example.simple_dictionary.core.base.BaseFragment

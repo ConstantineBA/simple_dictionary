@@ -1,4 +1,4 @@
-package com.example.simple_dictionary.presenter
+package com.example.simple_dictionary
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

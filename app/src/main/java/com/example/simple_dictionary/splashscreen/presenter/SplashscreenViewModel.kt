@@ -1,4 +1,4 @@
-package com.example.simple_dictionary.presenter.splashscreen
+package com.example.simple_dictionary.splashscreen.presenter
 
 import com.example.simple_dictionary.core.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

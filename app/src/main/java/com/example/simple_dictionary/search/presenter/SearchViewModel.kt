@@ -1,7 +1,6 @@
-package com.example.simple_dictionary.presenter.search
+package com.example.simple_dictionary.search.presenter
 
 import com.example.simple_dictionary.core.base.BaseViewModel
-import com.example.simple_dictionary.presenter.splashscreen.SplashscreenUiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer
