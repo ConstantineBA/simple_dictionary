@@ -11,10 +11,13 @@ abstract class BaseViewModel<EVENT : BaseUiEvent, MODEL : BaseUiModel> : ViewMod
     val subject: @NonNull PublishSubject<EVENT> by lazy { PublishSubject.create() }
 
     val model: Observable<MODEL> = subject
-        .doOnEach { previewEvent = it.value }
         .filter { it != previewEvent }
+        .doOnNext { previewEvent = it }
         .compose(mappingEventToModel())
         .filter { it != previewModel }
+        .doOnError {
+            it.printStackTrace()
+        }
         .doOnNext { previewModel = it }
 
 
