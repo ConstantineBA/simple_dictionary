@@ -51,7 +51,9 @@ dependencies {
             lib.hilt.imp,
             lib.ktxDependencies.values(),
             lib.retrofit.values(),
-            lib.gson
+            lib.gson,
+            lib.fastAdapter.values(),
+            lib.glide.values()
     )
 
     kapt lib.hilt.kapet

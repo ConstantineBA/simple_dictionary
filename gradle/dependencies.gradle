@@ -64,7 +64,7 @@ ext.lib = [
                 kapet: "com.google.dagger:hilt-compiler:$versions.hilt"
         ],
 
-        fastAdapet     : [
+        fastAdapter     : [
                 fastAdapter          : "com.mikepenz:fastadapter:$versions.fastAdapter",
                 fastadapterBindingExt: "com.mikepenz:fastadapter-extensions-binding:$versions.fastAdapter",
                 fastadapterUtils     : "com.mikepenz:fastadapter-extensions-utils:$versions.fastAdapter",
