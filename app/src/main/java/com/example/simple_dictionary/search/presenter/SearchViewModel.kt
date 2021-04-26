@@ -39,7 +39,6 @@ class SearchViewModel @Inject constructor(
                     .map { results -> SearchResultUiModel(results = results) }
                     .startWithItem(SearchResultUiModel().toLoading())
                     .onErrorReturnItem(SearchResultUiModel().toError())
-
             }
         }
     }

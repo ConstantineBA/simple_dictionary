@@ -10,7 +10,6 @@
     <!--- Splashscreen region -->
     <string name="splashscreen_title">Simple dictionary</string>
     <string name="splashscreen_description">it’s simple app for experience</string>
-
     <!--- end Splashscreen region -->
 
     <!--- Search region -->
@@ -20,6 +19,15 @@
     <string name="search_result_label">Result</string>
     <string name="search_progress_label">Search...</string>
     <string name="search_not_found_label">We can’t found your word.</string>
-    <!--- end Splashscreen region -->
+    <!--- end Search region -->
+
+    <!--- Search detail region -->
+    <string name="search_detail_adjective_label">adjective</string>
+    <string name="search_detail_noun_label">noun</string>
+    <string name="search_detail_verb_label">verb</string>
+    <string name="search_detail_definition_label">Definition</string>
+    <string name="search_detail_other_label">Others translation</string>
+    <string name="search_detail_examples_label">Examples</string>
+    <!--- end Search detail region -->
 
 </resources>
