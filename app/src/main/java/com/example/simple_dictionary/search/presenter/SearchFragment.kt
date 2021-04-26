@@ -11,8 +11,11 @@ import com.example.simple_dictionary.common.util.genericFastItemAdapter
 import com.example.simple_dictionary.core.base.BaseFragment
 import com.example.simple_dictionary.core.base.BaseUiModel
 import com.example.simple_dictionary.databinding.SearchFragmentBinding
+import com.example.simple_dictionary.databinding.SearchResultItemBinding
 import com.example.simple_dictionary.search.presenter.SearchUiEvent.InputSearchTextUiEvent
+import com.example.simple_dictionary.search.presenter.model.SearchResultItem
 import com.mikepenz.fastadapter.adapters.GenericFastItemAdapter
+import com.mikepenz.fastadapter.binding.listeners.addClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,11 +44,12 @@ class SearchFragment :
         messageText.isVisible = isError
         if (isError) {
             statusText.text = getString(R.string.splashscreen_error_title)
-            messageText.text = getString(R.string.splashscreen_error_something_wrong_description)
+            messageText.text = getText(R.string.splashscreen_error_something_wrong_description)
         }
     }
 
     private fun SearchFragmentBinding.showContent(uiModel: SearchUiModel.SearchResultUiModel) {
+        list.isVisible = uiModel.isContent()
         if (uiModel.isContent()) {
             statusText.text = getString(R.string.search_result_label)
             val isEmptyState = uiModel.results.isEmpty()
@@ -69,7 +73,16 @@ class SearchFragment :
                 sendUiEvent(InputSearchTextUiEvent(inputText.toString()))
             }
         }
-        list.adapter = GenericFastItemAdapter()
+        list.adapter = GenericFastItemAdapter().apply {
+            addClickListener(
+                resolveView = SearchResultItemBinding::getRoot,
+                onClick = { _, _, _, item ->
+                    if (item is SearchResultItem) {
+                        viewModel.onButtonItemClicked(item.id)
+                    }
+                }
+            )
+        }
         list.animation = null
     }
 }

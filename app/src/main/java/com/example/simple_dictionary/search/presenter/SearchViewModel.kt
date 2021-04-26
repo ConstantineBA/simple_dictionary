@@ -1,5 +1,6 @@
 package com.example.simple_dictionary.search.presenter
 
+import android.util.Log
 import com.example.simple_dictionary.core.base.BaseViewModel
 import com.example.simple_dictionary.search.domain.SearchWordUserCase
 import com.example.simple_dictionary.search.presenter.SearchUiEvent.InputSearchTextUiEvent
@@ -14,10 +15,15 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor(
     private val searchWordUserCase: SearchWordUserCase
 ) : BaseViewModel<SearchUiEvent, SearchUiModel>() {
+
     override fun mappingEventToModel(): ObservableTransformer<SearchUiEvent, SearchUiModel> {
         return ObservableTransformer {
             it.ofType(InputSearchTextUiEvent::class.java).compose(onOpenScreenEvent())
         }
+    }
+
+    fun onButtonItemClicked(id: Int) {
+        Log.d("test ------->", "onButtonItemClicked: $id")
     }
 
     private fun onOpenScreenEvent(): ObservableTransformer<InputSearchTextUiEvent, SearchResultUiModel> {
