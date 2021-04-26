@@ -5,17 +5,21 @@ import io.reactivex.rxjava3.annotations.NonNull
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableTransformer
 import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 
 abstract class BaseViewModel<EVENT : BaseUiEvent, MODEL : BaseUiModel> : ViewModel() {
 
-    val subject: @NonNull PublishSubject<EVENT> by lazy { PublishSubject.create() }
+    val subject: @NonNull Subject<EVENT> by lazy { PublishSubject.create() }
 
     val model: Observable<MODEL> = subject
-        .doOnEach { previewEvent = it.value }
         .filter { it != previewEvent }
+        .doOnNext { previewEvent = it }
         .compose(mappingEventToModel())
         .filter { it != previewModel }
         .doOnNext { previewModel = it }
+        .doOnError {
+            it.printStackTrace()
+        }
 
 
     private var previewEvent: BaseUiEvent? = null

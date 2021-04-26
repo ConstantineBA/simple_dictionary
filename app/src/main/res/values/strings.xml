@@ -1,11 +1,25 @@
 <resources>
     <string name="app_name">simple_dictionary</string>
 
+    <!--- Common region -->
+    <string name="splashscreen_error_something_wrong_description">Something went wrong. \nPlease, wait and repeat later</string>
+    <string name="splashscreen_error_title">Error :(</string>
+
+    <!--- end Splashscreen region -->
+
     <!--- Splashscreen region -->
     <string name="splashscreen_title">Simple dictionary</string>
     <string name="splashscreen_description">it’s simple app for experience</string>
 
     <!--- end Splashscreen region -->
 
+    <!--- Search region -->
+    <string name="search_title">Dictionary</string>
+    <string name="search_hint">Input your text</string>
+    <string name="search_recent_label">Recent</string>
+    <string name="search_result_label">Result</string>
+    <string name="search_progress_label">Search...</string>
+    <string name="search_not_found_label">We can’t found your word.</string>
+    <!--- end Splashscreen region -->
 
 </resources>

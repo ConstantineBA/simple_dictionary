@@ -58,7 +58,9 @@ abstract class BaseFragment<VIEW_BINDING : ViewBinding, EVENT : BaseUiEvent, MOD
 
     protected open fun onUiStateChange(uiModel: BaseUiModel) {}
 
-    protected open fun onErrorUiState(it: Throwable) {}
+    protected open fun onErrorUiState(it: Throwable) {
+        it.printStackTrace()
+    }
 
     protected fun sendUiEvent(event: EVENT) {
         viewModel.subject.onNext(event)

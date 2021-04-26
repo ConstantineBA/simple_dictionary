@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="30dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="30dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/ripple_rounded_rect_4dp"
+    android:backgroundTint="?attr/colorSurface"
+    android:padding="14dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/wordText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/previewImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        tools:text="result" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/meaningText"
+        style="@style/TextView.Black.14sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toStartOf="@id/previewImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wordText"
+
+        tools:text="результат" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/otherMeaningsText"
+        style="@style/TextView.Regular.12sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toStartOf="@id/previewImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/meaningText"
+
+        tools:text="результат, оценка" />
+
+    <ImageView
+        android:id="@+id/previewImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_empty_image_placeholder_70"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@
     android:background="?attr/colorPrimarySurface"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    tools:context=".presenter.SingleActivity">
+    tools:context=".SingleActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navHostFragment"

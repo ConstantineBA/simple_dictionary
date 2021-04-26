@@ -1,4 +1,4 @@
-package com.example.simple_dictionary.presenter.splashscreen
+package com.example.simple_dictionary.splashscreen.presenter
 
 import com.example.simple_dictionary.core.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,9 +18,9 @@ class SplashscreenViewModel @Inject constructor() :
         }
     }
 
-    private fun onOpenScreenEvent(): ObservableTransformer<SplashscreenUiEvent, SplashscreenUiModel> {
+    private fun onOpenScreenEvent(): ObservableTransformer<SplashscreenUiEvent, SplashscreenUiModel.GoToSearch> {
         return ObservableTransformer {
-            Observable.just(SplashscreenUiModel()).delay(1, TimeUnit.SECONDS)
+            Observable.just(SplashscreenUiModel.GoToSearch).delay(1, TimeUnit.SECONDS)
         }
     }
 }

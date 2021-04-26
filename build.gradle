@@ -1,5 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext.kotlin_version = '1.5.0-RC'
     apply from: "gradle/dependencies.gradle"
 
     ext.kotlin_version = "1.4.31"
@@ -12,6 +13,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
         classpath lib.hilt.plug
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

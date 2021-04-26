@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
 }
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion versions.compileSdk
@@ -48,7 +49,11 @@ dependencies {
             lib.androidx.values(),
             lib.material,
             lib.hilt.imp,
-            lib.ktxDependencies.values()
+            lib.ktxDependencies.values(),
+            lib.retrofit.values(),
+            lib.gson,
+            lib.fastAdapter.values(),
+            lib.glide.values()
     )
 
     kapt lib.hilt.kapet
@@ -56,4 +61,6 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
