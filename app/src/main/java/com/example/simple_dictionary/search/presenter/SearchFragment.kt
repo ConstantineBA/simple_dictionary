@@ -6,13 +6,18 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.simple_dictionary.R
 import com.example.simple_dictionary.common.util.genericFastItemAdapter
 import com.example.simple_dictionary.core.base.BaseFragment
 import com.example.simple_dictionary.core.base.BaseUiModel
 import com.example.simple_dictionary.databinding.SearchFragmentBinding
 import com.example.simple_dictionary.databinding.SearchResultItemBinding
+import com.example.simple_dictionary.search.presenter.SearchFragmentDirections.Companion.toSearchDetailFragment
 import com.example.simple_dictionary.search.presenter.SearchUiEvent.InputSearchTextUiEvent
+import com.example.simple_dictionary.search.presenter.SearchUiEvent.OnItemClickedUiEvent
+import com.example.simple_dictionary.search.presenter.SearchUiModel.GoToSearchDetail
+import com.example.simple_dictionary.search.presenter.SearchUiModel.SearchResultUiModel
 import com.example.simple_dictionary.search.presenter.model.SearchResultItem
 import com.mikepenz.fastadapter.adapters.GenericFastItemAdapter
 import com.mikepenz.fastadapter.binding.listeners.addClickListener
@@ -27,10 +32,14 @@ class SearchFragment :
 
     override fun onUiStateChange(uiModel: BaseUiModel) {
         when (uiModel) {
-            is SearchUiModel.SearchResultUiModel -> {
+            is SearchResultUiModel -> {
                 binding.showLoading()
                 binding.showError(uiModel.isError)
                 binding.showContent(uiModel)
+            }
+
+            is GoToSearchDetail -> {
+                findNavController().navigate(toSearchDetailFragment(uiModel.id))
             }
         }
     }
@@ -48,7 +57,7 @@ class SearchFragment :
         }
     }
 
-    private fun SearchFragmentBinding.showContent(uiModel: SearchUiModel.SearchResultUiModel) {
+    private fun SearchFragmentBinding.showContent(uiModel: SearchResultUiModel) {
         list.isVisible = uiModel.isContent()
         if (uiModel.isContent()) {
             statusText.text = getString(R.string.search_result_label)
@@ -78,7 +87,7 @@ class SearchFragment :
                 resolveView = SearchResultItemBinding::getRoot,
                 onClick = { _, _, _, item ->
                     if (item is SearchResultItem) {
-                        viewModel.onButtonItemClicked(item.id)
+                        sendUiEvent(OnItemClickedUiEvent(item.id))
                     }
                 }
             )
