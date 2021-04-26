@@ -15,6 +15,10 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="TextView.Black.14sp" parent="@style/TextView.Black">
+        <item name="android:textSize">14sp</item>
+    </style>
+
 
     <style name="TextView.Regular" parent="@style/Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/roboto_regular</item>
@@ -23,6 +27,10 @@
 
     <style name="TextView.Regular.14sp" parent="TextView.Regular">
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextView.Regular.12sp" parent="TextView.Regular">
+        <item name="android:textSize">12sp</item>
     </style>
 
 

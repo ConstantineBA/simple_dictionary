@@ -1,7 +1,6 @@
 package com.example.simple_dictionary.core.di
 
-import com.example.simple_dictionary.common.api.SkyengApi
-import com.google.gson.GsonBuilder
+import com.example.simple_dictionary.common.data.api.SkyengApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

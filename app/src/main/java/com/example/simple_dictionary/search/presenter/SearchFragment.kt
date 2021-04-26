@@ -1,14 +1,18 @@
 package com.example.simple_dictionary.search.presenter
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
+import com.example.simple_dictionary.R
+import com.example.simple_dictionary.common.util.genericFastItemAdapter
 import com.example.simple_dictionary.core.base.BaseFragment
 import com.example.simple_dictionary.core.base.BaseUiModel
 import com.example.simple_dictionary.databinding.SearchFragmentBinding
 import com.example.simple_dictionary.search.presenter.SearchUiEvent.InputSearchTextUiEvent
+import com.mikepenz.fastadapter.adapters.GenericFastItemAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +24,37 @@ class SearchFragment :
 
     override fun onUiStateChange(uiModel: BaseUiModel) {
         when (uiModel) {
-            is SearchUiModel.SearchResultUiModel -> Log.d("test", "result: ${uiModel.results} ")
+            is SearchUiModel.SearchResultUiModel -> {
+                binding.showLoading()
+                binding.showError(uiModel.isError)
+                binding.showContent(uiModel)
+            }
+        }
+    }
+
+
+    private fun SearchFragmentBinding.showLoading() {
+        statusText.text = getString(R.string.search_progress_label)
+    }
+
+    private fun SearchFragmentBinding.showError(isError: Boolean) {
+        messageText.isVisible = isError
+        if (isError) {
+            statusText.text = getString(R.string.splashscreen_error_title)
+            messageText.text = getString(R.string.splashscreen_error_something_wrong_description)
+        }
+    }
+
+    private fun SearchFragmentBinding.showContent(uiModel: SearchUiModel.SearchResultUiModel) {
+        if (uiModel.isContent()) {
+            statusText.text = getString(R.string.search_result_label)
+            val isEmptyState = uiModel.results.isEmpty()
+            list.isGone = isEmptyState
+            if (isEmptyState) {
+                messageText.isVisible = isEmptyState
+                messageText.text = getString(R.string.search_not_found_label)
+            }
+            list.genericFastItemAdapter.set(uiModel.results)
         }
     }
 
@@ -35,5 +69,7 @@ class SearchFragment :
                 sendUiEvent(InputSearchTextUiEvent(inputText.toString()))
             }
         }
+        list.adapter = GenericFastItemAdapter()
+        list.animation = null
     }
 }

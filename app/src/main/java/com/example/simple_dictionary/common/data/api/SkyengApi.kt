@@ -1,4 +1,4 @@
-package com.example.simple_dictionary.common.api
+package com.example.simple_dictionary.common.data.api
 
 import com.example.simple_dictionary.search.data.SearchResult
 import io.reactivex.rxjava3.core.Single

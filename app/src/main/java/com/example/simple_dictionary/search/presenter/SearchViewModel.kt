@@ -22,20 +22,14 @@ class SearchViewModel @Inject constructor(
 
     private fun onOpenScreenEvent(): ObservableTransformer<InputSearchTextUiEvent, SearchResultUiModel> {
         return ObservableTransformer {
-            it.switchMap { event ->
+            it.flatMap { event ->
                 searchWordUserCase.execute(event.inputSting)
                     .toObservable()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .map {
-                        SearchResultUiModel(results = it)
-                    }
+                    .map { results -> SearchResultUiModel(results = results) }
                     .startWithItem(SearchResultUiModel().toLoading())
-                    .doOnError {
-                        it.printStackTrace()
-                    }
                     .onErrorReturnItem(SearchResultUiModel().toError())
-
             }
         }
     }
