@@ -57,8 +57,8 @@ class SearchDetailFragment :
     private fun SearchDetailFragmentBinding.showContent(uiModel: SearchDetailUiModel) {
         list.isVisible = uiModel.isContent()
         val items = mutableListOf(
-            uiModel.definition,
             uiModel.transcription,
+            uiModel.definition,
             uiModel.partOfSpeech,
         ).apply {
             uiModel.examples?.let { addAll(it) }
