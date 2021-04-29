@@ -27,6 +27,7 @@
     <string name="search_detail_verb_label">verb</string>
     <string name="search_detail_definition_label">Definition</string>
     <string name="search_detail_other_label">Others translation</string>
+    <string name="search_detail_toolbar_label">Search</string>
     <string name="search_detail_examples_label">Examples</string>
     <!--- end Search detail region -->
 

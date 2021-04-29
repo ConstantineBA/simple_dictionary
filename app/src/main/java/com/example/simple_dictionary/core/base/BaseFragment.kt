@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.example.simple_dictionary.common.util.getDrawableByAttr
 import com.example.simple_dictionary.core.HiltApplication
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -68,5 +70,15 @@ abstract class BaseFragment<VIEW_BINDING : ViewBinding, EVENT : BaseUiEvent, MOD
 
     private fun getHilApplication(): HiltApplication {
         return (requireActivity().application as HiltApplication)
+    }
+
+    protected fun Toolbar.setToolbarBackNavigation() {
+        setToolbarBackNavigation { activity?.onBackPressed() }
+    }
+
+    protected fun Toolbar.setToolbarBackNavigation(action: () -> Unit) {
+        if (this.navigationIcon == null) this.navigationIcon =
+            getDrawableByAttr(android.R.attr.homeAsUpIndicator)
+        this.setNavigationOnClickListener { action.invoke() }
     }
 }
