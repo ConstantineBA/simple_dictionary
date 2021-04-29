@@ -31,11 +31,11 @@
 
     <fragment
         android:id="@+id/searchDetailFragment"
-        android:name="com.example.simple_dictionary.search_detail.SearchDetailFragment"
+        android:name="com.example.simple_dictionary.search_detail.presenter.SearchDetailFragment"
         tools:layout="@layout/search_detail_fragment">
 
         <argument
-            android:name="id"
+            android:name="searchId"
             app:argType="integer" />
 
     </fragment>

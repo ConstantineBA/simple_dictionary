@@ -30,7 +30,7 @@ class SearchFragment :
 
     override val viewModel: SearchViewModel by viewModels()
 
-    override fun onUiStateChange(uiModel: BaseUiModel) {
+    override fun onUiStateChange(uiModel: SearchUiModel) {
         when (uiModel) {
             is SearchResultUiModel -> {
                 binding.showLoading()
@@ -44,6 +44,10 @@ class SearchFragment :
         }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.setupView()
+    }
 
     private fun SearchFragmentBinding.showLoading() {
         statusText.text = getString(R.string.search_progress_label)
@@ -69,11 +73,6 @@ class SearchFragment :
             }
             list.genericFastItemAdapter.set(uiModel.results)
         }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.setupView()
     }
 
     private fun SearchFragmentBinding.setupView() {

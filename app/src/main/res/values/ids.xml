@@ -2,5 +2,12 @@
 <resources>
     <item name="fast_adapter_search_result_item" type="id"/>
 
+    <item name="fast_adapter_search_details_definition" type="id"/>
+    <item name="fast_adapter_search_details_part" type="id"/>
+    <item name="fast_adapter_search_details_translate" type="id"/>
+    <item name="fast_adapter_search_details_example" type="id"/>
+    <item name="fast_adapter_search_details_transcription" type="id"/>
+    <item name="fast_adapter_search_details_part_of_speech" type="id"/>
+
 
 </resources>

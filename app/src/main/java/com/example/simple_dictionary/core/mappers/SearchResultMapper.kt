@@ -9,7 +9,7 @@ class SearchResultMapper @Inject constructor() {
         with(searchResult) {
             val firstMeaning = meanings.first()
             return SearchResultItem(
-                id = id,
+                id = firstMeaning.id,
                 word = text,
                 meaning = firstMeaning.translation.text,
                 otherMeanings = searchResult.meanings.drop(1).map { it.translation.text },

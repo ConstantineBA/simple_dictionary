@@ -22,7 +22,7 @@ class SplashscreenFragment :
         sendUiEvent(SplashscreenUiEvent.OpenScreen)
     }
 
-    override fun onUiStateChange(uiModel: BaseUiModel) {
+    override fun onUiStateChange(uiModel: SplashscreenUiModel) {
         when (uiModel) {
             is GoToSearch -> findNavController().navigate(R.id.toSearchFragment)
         }
