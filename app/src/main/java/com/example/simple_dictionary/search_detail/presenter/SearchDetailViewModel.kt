@@ -7,6 +7,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.ObservableTransformer
 import io.reactivex.rxjava3.schedulers.Schedulers
+import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
@@ -38,9 +39,6 @@ class SearchDetailViewModel @Inject constructor(
                     }
                     .startWithItem(SearchDetailUiModel().toLoading())
                     .onErrorReturnItem(SearchDetailUiModel().toError())
-                    .doOnError {
-                        it.printStackTrace()
-                    }
             }
         }
     }

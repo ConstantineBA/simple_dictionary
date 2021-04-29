@@ -15,8 +15,5 @@ class GetMeaningUseCase @Inject constructor(
         return skyengApi.getMeaning(id)
             .map { it.first() }
             .map(meaningMapper::mapItem)
-            .doOnError {
-                it.printStackTrace()
-            }
     }
 }

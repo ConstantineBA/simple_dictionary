@@ -8,9 +8,12 @@ import androidx.navigation.fragment.navArgs
 import com.example.simple_dictionary.R
 import com.example.simple_dictionary.common.util.genericFastItemAdapter
 import com.example.simple_dictionary.core.base.BaseFragment
+import com.example.simple_dictionary.databinding.CommonClickArrowItemBinding
 import com.example.simple_dictionary.databinding.SearchDetailFragmentBinding
+import com.example.simple_dictionary.search_detail.presenter.model.TranslationItem
 import com.mikepenz.fastadapter.GenericItem
 import com.mikepenz.fastadapter.adapters.GenericFastItemAdapter
+import com.mikepenz.fastadapter.binding.listeners.addClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -68,7 +71,17 @@ class SearchDetailFragment :
     }
 
     private fun SearchDetailFragmentBinding.setupView() {
-        list.adapter = GenericFastItemAdapter()
+        list.adapter = GenericFastItemAdapter().apply {
+            addClickListener(
+                resolveView = CommonClickArrowItemBinding::getRoot,
+                onClick = { _, _, _, item ->
+                    if (item is TranslationItem) {
+                        sendUiEvent(SearchDetailUiEvent.GetSearchDetails(item.id))
+                    }
+                }
+            )
+        }
         list.animation = null
+
     }
 }
