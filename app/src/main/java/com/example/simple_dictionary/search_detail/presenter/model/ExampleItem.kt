@@ -9,7 +9,7 @@ import com.example.simple_dictionary.databinding.CommonClickArrowItemBinding.inf
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 
 data class ExampleItem(
-    val example: String,
+    val example: String = "",
     val hasHeader: Boolean,
     val isClickable: Boolean = false
 ) : AbstractBindingItem<CommonClickArrowItemBinding>() {
@@ -24,8 +24,9 @@ data class ExampleItem(
             headerText.text = root.context.getText(R.string.search_detail_examples_label)
             headerText.isVisible = hasHeader
             descriptionText.text = example
+            descriptionText.isVisible = example.isNotEmpty()
             actionImage.isVisible = isClickable
-            root.isClickable = isClickable
+            root.isEnabled = isClickable
         }
     }
 }

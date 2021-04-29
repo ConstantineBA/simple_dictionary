@@ -9,9 +9,9 @@ import com.example.simple_dictionary.databinding.CommonClickArrowItemBinding.inf
 import com.mikepenz.fastadapter.binding.AbstractBindingItem
 
 data class TranslationItem(
-    val id: Int,
-    val translation: String,
-    val hasHeader: Boolean,
+    val id: Int = 0,
+    val translation: String = "",
+    val hasHeader: Boolean = false,
     val isClickable: Boolean = false
 ) : AbstractBindingItem<CommonClickArrowItemBinding>() {
     override val type: Int = R.id.fast_adapter_search_details_transcription
@@ -25,6 +25,7 @@ data class TranslationItem(
             headerText.text = root.context.getText(R.string.search_detail_other_label)
             headerText.isVisible = hasHeader
             descriptionText.text = translation
+            descriptionText.isVisible = translation.isNotEmpty()
             actionImage.isVisible = isClickable
         }
     }
