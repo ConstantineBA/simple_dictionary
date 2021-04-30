@@ -45,8 +45,9 @@ class SearchFragment :
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+
         binding.setupView()
+        super.onViewCreated(view, savedInstanceState)
     }
 
     private fun SearchFragmentBinding.showLoading() {

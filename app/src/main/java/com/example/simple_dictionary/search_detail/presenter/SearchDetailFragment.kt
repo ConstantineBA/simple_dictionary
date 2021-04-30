@@ -28,13 +28,13 @@ class SearchDetailFragment :
     private val arguments by navArgs<SearchDetailFragmentArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         with(binding.appbarContainer.toolbar) {
             title = getString(R.string.search_detail_toolbar_label)
             setToolbarBackNavigation()
         }
 
         binding.setupView()
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onResume() {

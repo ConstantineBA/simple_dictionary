@@ -22,8 +22,8 @@ abstract class BaseViewModel<EVENT : BaseUiEvent, MODEL : BaseUiModel> : ViewMod
         }
 
 
-    private var previewEvent: BaseUiEvent? = null
-    private var previewModel: BaseUiModel? = null
+    private var previewEvent: EVENT? = null
+    var previewModel: MODEL? = null
 
     protected abstract fun mappingEventToModel(): ObservableTransformer<EVENT, MODEL>
 }

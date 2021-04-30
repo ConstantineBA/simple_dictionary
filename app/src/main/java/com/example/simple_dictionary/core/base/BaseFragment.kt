@@ -39,6 +39,12 @@ abstract class BaseFragment<VIEW_BINDING : ViewBinding, EVENT : BaseUiEvent, MOD
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.previewModel?.let {
+            onUiStateChange(it)
+        }
+    }
     override fun onResume() {
         super.onResume()
 
