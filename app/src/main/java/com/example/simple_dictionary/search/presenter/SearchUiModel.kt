@@ -32,4 +32,6 @@ sealed class SearchUiModel : BaseUiModel() {
 
         fun isContent(): Boolean = !isLoading && !isError
     }
+
+    data class GoToSearchDetail(val id: Int) : SearchUiModel()
 }

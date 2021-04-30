@@ -14,6 +14,7 @@ buildscript {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
         classpath lib.hilt.plug
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
