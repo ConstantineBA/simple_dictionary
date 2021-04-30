@@ -1,5 +1,6 @@
 package com.example.simple_dictionary.search_detail.presenter
 
+import android.content.res.Configuration.ORIENTATION_LANDSCAPE
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
@@ -13,6 +14,7 @@ import com.example.simple_dictionary.databinding.SearchDetailFragmentBinding
 import com.example.simple_dictionary.search_detail.presenter.model.TranslationItem
 import com.mikepenz.fastadapter.GenericItem
 import com.mikepenz.fastadapter.adapters.GenericFastItemAdapter
+import com.mikepenz.fastadapter.binding.AbstractBindingItem
 import com.mikepenz.fastadapter.binding.listeners.addClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -59,15 +61,25 @@ class SearchDetailFragment :
 
     private fun SearchDetailFragmentBinding.showContent(uiModel: SearchDetailUiModel) {
         list.isVisible = uiModel.isContent()
-        val items = mutableListOf(
-            uiModel.transcription,
-            uiModel.definition,
-            uiModel.partOfSpeech,
-        ).apply {
-            uiModel.examples?.let { addAll(it) }
-            uiModel.translations?.let { addAll(it) }
-        }.filterNotNull()
-        list.genericFastItemAdapter.set(items as List<GenericItem>)
+
+        val items = mutableListOf<AbstractBindingItem<*>?>()
+        if (resources.configuration.orientation == ORIENTATION_LANDSCAPE) {
+            transcriptionInclude?.root?.isVisible = uiModel.isContent()
+            definitionInclude?.root?.isVisible = uiModel.isContent()
+            partOfSpeechInclude?.root?.isVisible = uiModel.isContent()
+
+            transcriptionInclude?.let { uiModel.transcription?.bindView(it, emptyList()) }
+            definitionInclude?.let { uiModel.definition?.bindView(it, emptyList()) }
+            partOfSpeechInclude?.let { uiModel.partOfSpeech?.bindView(it, emptyList()) }
+        } else {
+            items.add(uiModel.transcription)
+            items.add(uiModel.definition)
+            items.add(uiModel.partOfSpeech)
+        }
+        uiModel.examples?.let { items.addAll(it) }
+        uiModel.translations?.let { items.addAll(it) }
+
+        list.genericFastItemAdapter.set(items.filterNotNull() as List<GenericItem>)
     }
 
     private fun SearchDetailFragmentBinding.setupView() {
