@@ -1,6 +1,8 @@
 package com.example.simple_dictionary.core.di
 
 import com.example.simple_dictionary.common.data.api.SkyengApi
+import com.example.simple_dictionary.core.gson.GsonFactory
+import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,11 +28,13 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideSkyengApi(@Named("http-client-open") client: OkHttpClient): SkyengApi {
+    fun provideSkyengApi(
+        @Named("http-client-open") client: OkHttpClient,
+        @Named("gson") gson: Gson): SkyengApi {
         return Retrofit.Builder()
             .baseUrl("https://dictionary.skyeng.ru/")
             .client(client)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
             .create(SkyengApi::class.java)
@@ -48,5 +52,12 @@ object NetworkModule {
             .readTimeout(timeoutSeconds, TimeUnit.SECONDS)
             .writeTimeout(timeoutSeconds, TimeUnit.SECONDS)
             .build()
+    }
+
+    @Provides
+    @Singleton
+    @Named("gson")
+    fun provideGson(): Gson {
+        return GsonFactory.getGson()
     }
 }

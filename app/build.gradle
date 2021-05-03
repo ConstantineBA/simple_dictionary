@@ -54,14 +54,14 @@ dependencies {
             lib.retrofit.values(),
             lib.gson,
             lib.fastAdapter.values(),
-            lib.glide.values()
+            lib.glide.values(),
+            lib.coreKtx,
+            lib.kotlinStd
     )
 
-    kapt lib.hilt.kapet
+    kapt lib.hilt.kapt
 
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation "androidx.core:core-ktx:+"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    testImplementation lib.junit.junit
+    androidTestImplementation lib.junit.junitExt
+    androidTestImplementation lib.espresso
 }
