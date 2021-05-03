@@ -27,6 +27,7 @@ Merge requests naming - ***[SD-7] Search detail***
 New code splits on commits like ***[SD-7] Create UI.***
 
 ### Architecture
+Application was build on MVI
 ![Application was build on MVI](https://github.com/ConstantineBA/simple_dictionary/blob/develop/image/Architecture.png)
 
 ### Design
