@@ -15,9 +15,6 @@ class SearchWordUserCase @Inject constructor(
             .map { items ->
                 items.map { item -> searchResultMapper.mapItem(item) }
             }
-            .doOnError {
-                it.printStackTrace()
-            }
     }
 }
 

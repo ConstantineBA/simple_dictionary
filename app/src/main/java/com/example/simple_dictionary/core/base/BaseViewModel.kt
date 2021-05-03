@@ -17,9 +17,6 @@ abstract class BaseViewModel<EVENT : BaseUiEvent, MODEL : BaseUiModel> : ViewMod
         .compose(mappingEventToModel())
         .filter { it != previewModel }
         .doOnNext { previewModel = it }
-        .doOnError {
-            it.printStackTrace()
-        }
 
 
     private var previewEvent: EVENT? = null

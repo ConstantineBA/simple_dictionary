@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SearchDetailFragment :
     BaseFragment<SearchDetailFragmentBinding, SearchDetailUiEvent, SearchDetailUiModel>
-        (SearchDetailFragmentBinding::inflate) {
+         (SearchDetailFragmentBinding::inflate) {
 
     override val viewModel: SearchDetailViewModel by viewModels()
 
