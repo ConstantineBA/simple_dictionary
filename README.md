@@ -22,12 +22,13 @@ Task has next fields:
 
 ### Work with git
 Example naming branch in git ***feature/SD-7/search-detail***
-project has 3 type branch feature for new funcrtion, fix for bugfix and improvement for test and other task like redesign or increment versions
+project has 3 type branch feature for new functionals, fix for bugfix and improvement for test and other task like redesign or increment versions
 Merge requests naming - ***[SD-7] Search detail***
 New code splits on commits like ***[SD-7] Create UI.***
 
 ### Architecture
-Applicatin was bild on MVI.
+Application was build on MVI.
+(https://github.com/ConstantineBA/simple_dictionary/blob/develop/image/Architecture.png)
 
 ### Design
-For create sipmle and minimalistic [design](https://www.figma.com/file/iVli7YVU4XsqzkvfGzod8t/Simple-dictionary?node-id=0%3A1) i used component from material design.
+For create simple and minimalistic [design](https://www.figma.com/file/iVli7YVU4XsqzkvfGzod8t/Simple-dictionary?node-id=0%3A1) i used component from material design.
