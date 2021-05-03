@@ -27,8 +27,7 @@ Merge requests naming - ***[SD-7] Search detail***
 New code splits on commits like ***[SD-7] Create UI.***
 
 ### Architecture
-Application was build on MVI.
-(https://github.com/ConstantineBA/simple_dictionary/blob/develop/image/Architecture.png)
+![Application was build on MVI](https://github.com/ConstantineBA/simple_dictionary/blob/develop/image/Architecture.png)
 
 ### Design
 For create simple and minimalistic [design](https://www.figma.com/file/iVli7YVU4XsqzkvfGzod8t/Simple-dictionary?node-id=0%3A1) i used component from material design.
